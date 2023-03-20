@@ -1,0 +1,80 @@
+//HÌNH
+package bai2;
+
+public class Hinh {
+    protected static  double DienTich;
+
+    public Hinh(double DienTich, double dienTich2){
+        super();
+        this.DienTich = DienTich;
+    }
+
+    public double getDienTich(){
+        return this.DienTich;
+    }
+}
+
+
+//HÌNH CHỮ NHẬT
+Vpackage bai2;
+
+public class HinhChuNhat extends Hinh {
+    private float cd;
+    private float cr;
+
+    public HinhChuNhat( float cd, float cr, double DienTich){
+        super(cd,cr);
+        this.cd = cd;
+        this.cr = cr;
+    }
+
+    @Override
+    public double getDienTich(){
+        return this.cd * this.cr;
+    }
+
+    public String getToString() {
+        return "HinhChuNhat{" + "cd=" + cd +", cr='" + cr + '\'' +'}';
+    }
+}
+
+
+// HÌNH TRÒN
+package bai2;
+
+public class HinhTron extends Hinh{
+    private float r;
+
+    public HinhTron(float r){
+        super(r,DienTich);
+        this.r = r;
+    }
+
+    public  double getDienTich(){
+        return this.r*2 * Math.PI;
+    }
+    
+    public String getToString() {
+        return "HinhTron{" + "r" + r +'}';
+    }
+}
+
+
+
+//HÀM MAIN
+package bai2;
+
+import java.net.SocketPermission;
+
+public class Main{
+    public static void main(String[] args) {
+        Hinh h = new Hinh(0, 0);
+        System.out.println("Dien Tich: ");
+
+        HinhChuNhat hcn = new HinhChuNhat(3, 4, 0);
+        System.out.println("Dien tich hinh chu nhat: " +hcn.getDienTich());
+
+        HinhTron ht = new HinhTron(2);
+        System.out.println("Dien tich hinh tron: " +ht.getDienTich());
+    }
+}
